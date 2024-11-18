@@ -8,7 +8,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] protected Vector3 targetPosition;
     [SerializeField] protected float speed = 0.05f;
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         this.GetTargetPosition();
         this.LookAtTarget();
@@ -29,9 +29,13 @@ public class ShipMovement : MonoBehaviour
         this.targetPosition.z = 0;
     }
 
+    //protected virtual void Moving()
+    //{
+    //    Vector3 newPos = Vector3.Lerp(transform.parent.position, targetPosition, this.speed);
+    //    transform.parent.position = newPos;
+    //}
     protected virtual void Moving()
     {
-        Vector3 newPos = Vector3.Lerp(transform.parent.position, targetPosition, this.speed);
-        transform.parent.position = newPos;
+        transform.parent.position = Vector3.MoveTowards(transform.parent.position, targetPosition, speed);
     }
 }

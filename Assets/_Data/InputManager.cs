@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    //singleton
     private static InputManager instance;
     public static InputManager Instance { get => instance; }
 
