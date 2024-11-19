@@ -15,16 +15,16 @@ public class InputManager : MonoBehaviour
     [SerializeField] protected float mouseDown;
     public float MouseDown { get { return mouseDown; } }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (InputManager.instance != null) Debug.LogError("Only 1 InputManager allow to exist");
         InputManager.instance = this;
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         this.GetMousePos();
     }
-    private void Update()
+    protected virtual void Update()
     {
         this.GetMouseDown();
     }

@@ -54,6 +54,11 @@ public abstract class Spawner : ExtMonoBehaviour
             return null;
         }
 
+        return this.Spawn(prefab, position, rotation);
+    }
+
+    public virtual Transform Spawn(Transform prefab, Vector3 position, Quaternion rotation)
+    {
         position.z = 0f;
         Transform newPrefab = this.GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(position, rotation);
@@ -91,5 +96,11 @@ public abstract class Spawner : ExtMonoBehaviour
             if (prefab.name == prefabName) return prefab;
         }
         return null;
+    }
+
+    public virtual Transform RandomPrefab()
+    {
+        int rand = UnityEngine.Random.Range(0, prefabs.Count);
+        return this.prefabs[rand];
     }
 }

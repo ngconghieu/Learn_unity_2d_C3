@@ -13,7 +13,7 @@ public class FollowTarget : ExtMonoBehaviour
         this.Following();
     }
 
-    private void Following()
+    protected virtual void Following()
     {
         if (this.target == null) return;
         transform.position = Vector3.Lerp

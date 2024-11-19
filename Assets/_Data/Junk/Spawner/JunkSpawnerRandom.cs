@@ -32,7 +32,6 @@ public class JunkSpawnerRandom : ExtMonoBehaviour
     private void JunkSpawning()
     {
         if (this.RandomReachLimit()) return;
-
         this.randomTimer += Time.fixedDeltaTime;
         if (this.randomTimer < this.randomDelay) return;
         this.randomTimer = 0;
@@ -40,7 +39,8 @@ public class JunkSpawnerRandom : ExtMonoBehaviour
         Transform ranPoint = this.junkSpawnerCtrl.JunkSpawnPoint.GetRandom();
         Vector3 pos = ranPoint.position;
         Quaternion rot = transform.rotation;
-        Transform obj = this.junkSpawnerCtrl.JunkSpawner.Spawn(JunkSpawner.meteoriteOne, pos, rot);
+        Transform prefab = this.junkSpawnerCtrl.JunkSpawner.RandomPrefab();
+        Transform obj = this.junkSpawnerCtrl.JunkSpawner.Spawn(prefab, pos, rot);
         obj.gameObject.SetActive(true);
     }
 

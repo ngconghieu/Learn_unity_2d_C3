@@ -11,11 +11,23 @@ public class JunkCtrl : ExtMonoBehaviour
     [SerializeField] protected DespawnJunk despawnJunk;
     public DespawnJunk DespawnJunk => despawnJunk;
 
+    [SerializeField] protected JunkSO junkSO;
+    public JunkSO JunkSO => junkSO;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadModel();
         this.LoadDespawnJunk();
+        this.LoadJunkSO();
+    }
+
+    protected virtual void LoadJunkSO()
+    {
+        if (this.junkSO != null) return;
+        string resPath = "Junk/" + transform.name;
+        this.junkSO = Resources.Load<JunkSO>(resPath);
+        Debug.Log(transform.name + ": LoadJunkSO"+ resPath, gameObject);
     }
 
     protected virtual void LoadDespawnJunk()

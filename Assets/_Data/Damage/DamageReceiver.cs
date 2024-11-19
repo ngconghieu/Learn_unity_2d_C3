@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : ExtMonoBehaviour
+public abstract class DamageReceiver : ExtMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
@@ -32,7 +32,7 @@ public class DamageReceiver : ExtMonoBehaviour
         Debug.Log(transform.name + ": LoadCollider", gameObject);
     }
 
-    private void Reborn()
+    protected virtual void Reborn()
     {
         this.hp = this.hpMax;
         this.isDead = false;
@@ -60,10 +60,7 @@ public class DamageReceiver : ExtMonoBehaviour
         OnDead();
     }
 
-    protected virtual void OnDead()
-    {
-        //For override
-    }
+    protected abstract void OnDead();
 
     protected virtual bool IsDead()
     {

@@ -9,12 +9,12 @@ public class ShipShooting : MonoBehaviour
     [SerializeField] protected float shootDelay = 0.1f;
     [SerializeField] protected float shootTimer = 0f;
 
-    private void Update()
+    protected virtual void Update()
     {
         this.IsShooting();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         this.Shooting();
     }
