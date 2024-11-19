@@ -11,6 +11,9 @@ public class BulletCtrl : ExtMonoBehaviour
     [SerializeField] protected DespawnBullet despawnBullet;
     public DespawnBullet DespawnBullet => despawnBullet;
 
+    [SerializeField] protected Transform shooter;
+    public Transform Shooter => shooter;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -30,5 +33,10 @@ public class BulletCtrl : ExtMonoBehaviour
         if (this.damageSender != null) return;
         this.damageSender = transform.GetComponentInChildren<DamageSender>();
         Debug.Log(transform.name + ": DamageSender", gameObject);
+    }
+
+    public virtual void SetShooter(Transform shooter)
+    {
+        this.shooter = shooter;
     }
 }
