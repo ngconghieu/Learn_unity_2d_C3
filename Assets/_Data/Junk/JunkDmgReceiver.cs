@@ -31,7 +31,7 @@ public class JunkDmgReceiver : DamageReceiver
     protected virtual void OnDeadDrop()
     {
         transform.GetPositionAndRotation(out Vector3 dropPos, out Quaternion dropRot);
-        ItemDropSpawner.Instance
+        ItemSpawner.Instance
             .Drop(this.junkCtrl.JunkSO.dropList, dropPos, dropRot);
 
     }

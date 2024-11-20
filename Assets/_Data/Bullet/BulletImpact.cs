@@ -39,21 +39,21 @@ public class BulletImpact : BulletAbstract
     {
         if (other.transform.parent == this.bulletCtrl.Shooter) return;
         this.bulletCtrl.DamageSender.Send(other.transform);
-        this.createFXImpact(other);
+        //this.createFXImpact(other);
     }
 
-    protected virtual void createFXImpact(Collider other)
-    {
-        string fxName = this.GetImpactFXName();
-        Vector3 hitPos = transform.position;
-        Quaternion hitRot = transform.rotation * Quaternion.Euler(0f,0f,90f);
+    //protected virtual void createFXImpact(Collider other)
+    //{
+    //    string fxName = this.GetImpactFXName();
+    //    Vector3 hitPos = transform.position;
+    //    Quaternion hitRot = transform.rotation * Quaternion.Euler(0f,0f,90f);
 
-        Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
-        fxImpact.gameObject.SetActive(true);
-    }
+    //    Transform fxImpact = FXSpawner.Instance.Spawn(fxName, hitPos, hitRot);
+    //    fxImpact.gameObject.SetActive(true);
+    //}
 
-    protected virtual string GetImpactFXName()
-    {
-        return FXSpawner.impact1;
-    }
+    //protected virtual string GetImpactFXName()
+    //{
+    //    return FXSpawner.impact1;
+    //}
 }

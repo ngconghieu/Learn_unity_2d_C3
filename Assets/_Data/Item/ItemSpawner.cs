@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDropSpawner : Spawner
+public class ItemSpawner : Spawner
 {
-    private static ItemDropSpawner instance;
-    public static ItemDropSpawner Instance => instance;
+    private static ItemSpawner instance;
+    public static ItemSpawner Instance => instance;
 
     protected override void Awake()
     {
         base.Awake();
-        if (ItemDropSpawner.instance != null)
+        if (ItemSpawner.instance != null)
             Debug.LogError("ItemDropSpawner already exist");
-        ItemDropSpawner.instance = this;
+        ItemSpawner.instance = this;
     }
 
     public virtual void Drop(List<DropRate> dropList, Vector3 pos, Quaternion rot)
