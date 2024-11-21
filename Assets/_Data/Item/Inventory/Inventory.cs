@@ -10,6 +10,9 @@ public class Inventory : ExtMonoBehaviour
     protected override void Start()
     {
         base.Start();
+        this.AddItem(ItemCode.GoldOre, 21);
+        this.AddItem(ItemCode.CopperSword, 3);
+
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
